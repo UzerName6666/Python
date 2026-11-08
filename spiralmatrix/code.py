@@ -1,3 +1,19 @@
+def readMatrix(str: str):
+    matrix1 = str.rsplit(sep= '\n')
+    matrix2 = ""
+    for row in matrix1:
+        if(row.find('+') != 0):
+            matrix2 += row
+    matrix2 = matrix2.replace(' ', '')
+    matrix2 = matrix2.replace('|', ' ')
+    matrix2 = matrix2.replace('  ', ' ').lstrip(' ').rstrip(' ')
+    matrix3 = matrix2.rsplit(' ')
+    ans = []
+    for row in matrix3:
+        ans.append(int(row))
+
+    return ans
+
 
 def getSpiral(matrix, size):
     newmatrix = [0] * size * size
