@@ -1,14 +1,9 @@
 import spiralmatrix
+import asyncio
 
-testmatrix = """+-----+-----+-----+-----+
-|  10 |  20 |  30 |  40 |
-+-----+-----+-----+-----+
-|  50 |  60 |  70 |  80 |
-+-----+-----+-----+-----+
-|  90 | 100 | 110 | 120 |
-+-----+-----+-----+-----+
-| 130 | 140 | 150 | 160 |
-+-----+-----+-----+-----+"""
-
+testurl = 'https://raw.githubusercontent.com/avito-tech/python-trainee-assignment/main/matrix.txt'
+testmatrix = asyncio.run(spiralmatrix.loadfile(testurl))
+print(testmatrix)
 ans = spiralmatrix.readMatrix(testmatrix)
 print(spiralmatrix.getSpiral(ans, 4))
+
