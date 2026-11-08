@@ -58,3 +58,10 @@ def getSpiral(matrix, size):
     if size % 2 == 1: ## Берём центр для нечётных
         newmatrix[size * size - 1] = matrix[int(size * size / 2) - 1]
     return newmatrix
+
+async def get_matrix(url: str):
+    testmatrix = await loadfile(url)
+    if type(testmatrix) == str:
+        return testmatrix
+    ans = readMatrix(testmatrix)
+    return ans

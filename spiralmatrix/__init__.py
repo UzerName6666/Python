@@ -1,4 +1,2 @@
-from .code import getSpiral
-from .code import readMatrix
-from .code import loadfile
+from .code import get_matrix
 __version__ = "0.1.0"
