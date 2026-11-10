@@ -1,5 +1,6 @@
 import asyncio
 import aiohttp
+import math
 ## нужен pip install aiohttp
 ## ножно добавить 
 
@@ -64,4 +65,4 @@ async def get_matrix(url: str):
     if testmatrix.find("Ошибка") != -1:
         return testmatrix
     ans = readMatrix(testmatrix)
-    return getSpiral(ans, 4)
+    return getSpiral(ans, int(math.sqrt(len(ans))))
