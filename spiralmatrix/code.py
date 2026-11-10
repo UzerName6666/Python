@@ -19,7 +19,7 @@ async def loadfile(url):
         except asyncio.TimeoutError:
             return "Ошибка: Превышено время ожидания"
         except Exception as e:
-            return f"Произошла ошибка: {e}"
+            return f"Произошла Ошибка: {e}"
 
 def readMatrix(str: str):
     matrix1 = str.rsplit(sep= '\n')
@@ -61,7 +61,7 @@ def getSpiral(matrix, size):
 
 async def get_matrix(url: str):
     testmatrix = await loadfile(url)
-    if type(testmatrix) == str:
+    if testmatrix.find("Ошибка") != -1:
         return testmatrix
     ans = readMatrix(testmatrix)
-    return ans
+    return getSpiral(ans, 4)
