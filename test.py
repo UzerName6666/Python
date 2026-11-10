@@ -18,3 +18,24 @@ if(type(ans) == str):
     print("Пройден") 
 else:
     print("Не пройден")
+
+testurl2 = "https://raw.githubusercontent.com/UzerName6666/Python/refs/heads/main/testmatrix1.txt"
+testans2 =  [10, 50, 90, 130, 210, 220, 230, 240, 250, 200, 150, 100, 50, 40, 30, 20, 60, 100, 170, 180, 190, 140, 90, 80, 120]
+print("Нечётный размер")
+ans = asyncio.run(spiralmatrix.get_matrix(testurl2))
+if(type(ans) == str):
+    print("Не пройден: " + ans)
+elif ans == testans2:
+    print("Пройден")
+else:
+    print("Не пройден, иная матрица")
+
+testurl3 = "https://raw.githubusercontent.com/UzerName6666/Python/refs/heads/main/testmatrix2.txt"
+print("Другой размер ячеек")
+ans = asyncio.run(spiralmatrix.get_matrix(testurl3))
+if(type(ans) == str):
+    print("Не пройден: " + ans)
+elif ans == testans2:
+    print("Пройден")
+else:
+    print("Не пройден, иная матрица")
