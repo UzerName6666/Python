@@ -15,7 +15,11 @@ https://github.com/avito-tech/python-trainee-assignment
 1) Клонирование репозитория
     git clone https://github.com/UzerName6666/Python.git
 
-2) Открыть проект через VS Code и запустить test.py
+2) Перейти в директорию с репозиторием
+    cd Python
+
+3) Запустить тестирование
+    python test.py
 
 ## Возможные ошибки
 
