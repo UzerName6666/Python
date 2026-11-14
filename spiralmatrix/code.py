@@ -63,7 +63,13 @@ def getSpiral(matrix, size):
     return newmatrix
 
 async def get_matrix(url: str):
-    testmatrix = await loadfile(url)
+    try:
+        testmatrix = await loadfile(url)
+    except aiohttp.ClientConnectorDNSError:
+        return "Error: DNS Error"
+    except Exception as e:
+        return "Exception"
+
     if testmatrix.find("Error: ") != -1 or testmatrix.find("Info: ") != -1:
         return testmatrix
     ans = readMatrix(testmatrix)
