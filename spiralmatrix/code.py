@@ -1,12 +1,9 @@
-import asyncio
 import aiohttp
-import math
-## нужен pip install aiohttp
-## ножно добавить 
 
 
 
 async def loadfile(url: str):
+    """Загружает строку из текстового файла, рассположенного на сервере"""
     if url.find("http://") == -1 and url.find("https://") == -1:
         return "Error: wrong url"
     async with aiohttp.ClientSession() as session:
@@ -25,6 +22,7 @@ async def loadfile(url: str):
             
 
 def readMatrix(str: str):
+    """Переводит строку, содержащую матрицу, в список"""
     matrix1 = str.rsplit(sep= '\n')
     matrix2 = ""
     for row in matrix1:
@@ -42,6 +40,7 @@ def readMatrix(str: str):
     return ans
 
 def getSize(matrix: str):
+    """Получает размер квадратной матрицы. Если матрица не квадратная - возращается -1"""
     matrix1 = matrix.rsplit(sep= '\n')
     matrix2 = []
     for row in matrix1:
@@ -58,7 +57,8 @@ def getSize(matrix: str):
     
     
 
-def getSpiral(matrix, size):
+def getSpiral(matrix:list[int], size:int):
+    """Проходит в квадратной матрице по спирали"""
     newmatrix = [0] * size * size
     i = 0
     for loop in range(0, int(size / 2)): # Проходим по каждому кольцу
@@ -79,6 +79,12 @@ def getSpiral(matrix, size):
     return newmatrix
 
 async def get_matrix(url: str):
+    """ Получает URL на ресурс, содержащий квадратную матрицу 
+    Args:
+        url (string): ссылка на web ресурс, содержащий квадратную матрицу
+    Returns:
+        list[int]: обход полученной матрицы против часовой стрелки
+    """
     try:
         testmatrix = await loadfile(url)
     except aiohttp.ClientConnectorDNSError:
