@@ -42,3 +42,13 @@ elif ans == testans2:
     print("Пройден")
 else:
     print("Не пройден, иная матрица")
+testurl4 = "https://raw.githubusercontent.com/UzerName6666/Python/refs/heads/main/testmatrix3.txt"
+ans = asyncio.run(spiralmatrix.get_matrix(testurl4))
+print("Прямоугольная матрица")
+if(type(ans) == str):
+    if(ans == "Error: Wrong matrix"):
+        print("Пройден")
+    else:
+        print("Не пройден: " + ans)
+else:
+    print("Не пройден")

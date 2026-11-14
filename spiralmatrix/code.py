@@ -45,11 +45,11 @@ def getSize(matrix: str):
     matrix1 = matrix.rsplit(sep= '\n')
     matrix2 = []
     for row in matrix1:
-        if(row.find('+') != 0):
+        if(row.find('+') != 0 and len(row) != 0):
             matrix2.append(row)
     height = len(matrix2)
     lenght = matrix2[0].count('|')
-    if lenght == height:
+    if lenght - 1 != height:
         return -1
     for row in matrix2:
         if(matrix2[0].count('|') != lenght):
