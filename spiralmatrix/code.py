@@ -41,6 +41,22 @@ def readMatrix(str: str):
 
     return ans
 
+def getSize(matrix: str):
+    matrix1 = matrix.rsplit(sep= '\n')
+    matrix2 = []
+    for row in matrix1:
+        if(row.find('+') != 0):
+            matrix2.append(row)
+    height = len(matrix2)
+    lenght = matrix2[0].count('|')
+    if lenght == height:
+        return -1
+    for row in matrix2:
+        if(matrix2[0].count('|') != lenght):
+            return -1
+    return height
+    
+    
 
 def getSpiral(matrix, size):
     newmatrix = [0] * size * size
@@ -73,4 +89,7 @@ async def get_matrix(url: str):
     if testmatrix.find("Error: ") != -1 or testmatrix.find("Info: ") != -1:
         return testmatrix
     ans = readMatrix(testmatrix)
-    return getSpiral(ans, int(math.sqrt(len(ans))))
+    size = getSize(testmatrix)
+    if size == -1:
+        return "Error: Wrong matrix"
+    return getSpiral(ans, size)
