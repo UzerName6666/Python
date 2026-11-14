@@ -6,7 +6,7 @@ testans1 = [10, 50, 90, 130, 140, 150, 160, 120, 80, 40, 30, 20, 60, 100, 110, 7
 print("Тестовый вариант")
 ans = asyncio.run(spiralmatrix.get_matrix(testurl1))
 if(type(ans) == str):
-    print("Не пройден: " + ans)
+    print(ans)
 elif ans == testans1:
     print("Пройден")
 else:
@@ -15,7 +15,10 @@ else:
 print("Пустая ссылка")
 ans = asyncio.run(spiralmatrix.get_matrix(' '))
 if(type(ans) == str):
-    print("Пройден") 
+    if(ans == "Error: wrong url"):
+        print("Пройден")
+    else:
+        print("Не пройден: " + ans)
 else:
     print("Не пройден")
 

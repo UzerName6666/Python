@@ -6,21 +6,23 @@ import math
 
 
 
-async def loadfile(url):
+async def loadfile(url: str):
+    if url.find("http://") == -1 and url.find("https://") == -1:
+        return "Error: wrong url"
     async with aiohttp.ClientSession() as session:
-        try:
+        for rep in range(3):   
             async with session.get(url, timeout=10) as response:
                 response.raise_for_status()
-                
-                text = await response.text()
-                return text
-                
-        except aiohttp.ClientError as e:
-            return f"Ошибка сети/HTTP: {e}"
-        except asyncio.TimeoutError:
-            return "Ошибка: Превышено время ожидания"
-        except Exception as e:
-            return f"Произошла Ошибка: {e}"
+                code = response.status
+                if 200 <= code < 300:
+                    text = await response.text()
+                    return text
+                elif 400 <= code and code < 600 and rep == 3:
+                    return "Error: " + code
+                else:
+                    return "Info: " + code
+
+            
 
 def readMatrix(str: str):
     matrix1 = str.rsplit(sep= '\n')
@@ -62,7 +64,7 @@ def getSpiral(matrix, size):
 
 async def get_matrix(url: str):
     testmatrix = await loadfile(url)
-    if testmatrix.find("Ошибка") != -1:
+    if testmatrix.find("Error: ") != -1 or testmatrix.find("Info: ") != -1:
         return testmatrix
     ans = readMatrix(testmatrix)
     return getSpiral(ans, int(math.sqrt(len(ans))))
