@@ -35,6 +35,8 @@ def readMatrix(str: str):
     ans = []
     for row in matrix3:
         if(row != ''):
+            if not row.isdigit():
+                return []
             ans.append(int(row))
 
     return ans
@@ -95,6 +97,8 @@ async def get_matrix(url: str):
     if testmatrix.find("Error: ") != -1 or testmatrix.find("Info: ") != -1:
         return testmatrix
     ans = readMatrix(testmatrix)
+    if(len(ans) == 0):
+        return "Error: Wrong matrix"
     size = getSize(testmatrix)
     if size == -1:
         return "Error: Wrong matrix"
