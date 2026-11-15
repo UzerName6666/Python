@@ -14,7 +14,7 @@ async def loadfile(url: str):
                 if 200 <= code < 300:
                     text = await response.text()
                     return text
-                elif 400 <= code and code < 600 and rep == 3:
+                elif 400 <= code and code < 600 and rep == 2:
                     return "Error: " + code
                 else:
                     return "Info: " + code
@@ -51,7 +51,7 @@ def getSize(matrix: str):
     if lenght - 1 != height:
         return -1
     for row in matrix2:
-        if(matrix2[0].count('|') != lenght):
+        if(row.count('|') != lenght):
             return -1
     return height
     
