@@ -23,7 +23,7 @@ else:
     print("Не пройден")
 
 testurl2 = "https://raw.githubusercontent.com/UzerName6666/Python/refs/heads/main/testmatrix1.txt"
-testans2 =  [10, 50, 90, 130, 210, 220, 230, 240, 250, 200, 150, 100, 50, 40, 30, 20, 60, 100, 170, 180, 190, 140, 90, 80, 120]
+testans2 =  [10, 60, 110, 160, 210, 220, 230, 240, 250, 200, 150, 100, 50, 40, 30, 20, 70, 120, 170, 180, 190, 140, 90, 80, 130]
 print("Нечётный размер")
 ans = asyncio.run(spiralmatrix.get_matrix(testurl2))
 if(type(ans) == str):
