@@ -63,7 +63,7 @@ def getSpiral(matrix:list[int], size:int):
     i = 0
     for loop in range(0, int(size / 2)): # Проходим по каждому кольцу
         for left in range(loop, size - 1 - loop):
-            newmatrix[i] = matrix[left * 4 + loop]
+            newmatrix[i] = matrix[left * size + loop]
             i += 1
         for down in range(loop, size - 1 - loop):
             newmatrix[i] = matrix[down + (size - loop - 1) * size]
@@ -75,7 +75,7 @@ def getSpiral(matrix:list[int], size:int):
             newmatrix[i] = matrix[loop * size + size - up - 1]
             i += 1
     if size % 2 == 1: ## Берём центр для нечётных
-        newmatrix[size * size - 1] = matrix[int(size * size / 2) - 1]
+        newmatrix[size * size - 1] = matrix[int(size * size / 2)]
     return newmatrix
 
 async def get_matrix(url: str):
