@@ -50,7 +50,7 @@ https://github.com/avito-tech/python-trainee-assignment
 
 1) Клонирование репозитория с github
 
-        git clone https://github.com/UzerName6666/Python.git
+        git clone https://github.com/UzerName6666/Avito_Testtask_PythonMatrix.git
 
 2) Перейти в директорию с репозиторием
 
