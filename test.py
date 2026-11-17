@@ -22,7 +22,7 @@ if(type(ans) == str):
 else:
     print("Не пройден")
 
-testurl2 = "https://raw.githubusercontent.com/UzerName6666/Python/refs/heads/main/testmatrix1.txt"
+testurl2 = "https://raw.githubusercontent.com/UzerName6666/Avito_Testtask_PythonMatrix/refs/heads/main/testmatrix1.txt
 testans2 =  [10, 60, 110, 160, 210, 220, 230, 240, 250, 200, 150, 100, 50, 40, 30, 20, 70, 120, 170, 180, 190, 140, 90, 80, 130]
 print("Нечётный размер")
 ans = asyncio.run(spiralmatrix.get_matrix(testurl2))
@@ -33,7 +33,7 @@ elif ans == testans2:
 else:
     print("Не пройден, иная матрица")
 
-testurl3 = "https://raw.githubusercontent.com/UzerName6666/Python/refs/heads/main/testmatrix2.txt"
+testurl3 = "https://raw.githubusercontent.com/UzerName6666/Avito_Testtask_PythonMatrix/refs/heads/main/testmatrix2.txt"
 print("Другой размер ячеек")
 ans = asyncio.run(spiralmatrix.get_matrix(testurl3))
 if(type(ans) == str):
@@ -42,7 +42,7 @@ elif ans == testans2:
     print("Пройден")
 else:
     print("Не пройден, иная матрица")
-testurl4 = "https://raw.githubusercontent.com/UzerName6666/Python/refs/heads/main/testmatrix3.txt"
+testurl4 = "https://raw.githubusercontent.com/UzerName6666/Avito_Testtask_PythonMatrix/refs/heads/main/testmatrix3.txt"
 ans = asyncio.run(spiralmatrix.get_matrix(testurl4))
 print("Прямоугольная матрица")
 if(type(ans) == str):
